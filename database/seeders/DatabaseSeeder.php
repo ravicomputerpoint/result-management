@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Grade;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +19,27 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::create([
+            'name' => 'Ram',
+            'email' => 'ram@gmail.com',
+            'password' => Hash::make('12345678'),
         ]);
+
+        $now = now();
+
+        Grade::insert([
+            ['name' => 'Nursery', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'LKG', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'UKG', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '1', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '2', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '3', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '4', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '5', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '6', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '7', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '8', 'created_at' => $now, 'updated_at' => $now],
+        ]);
+
     }
 }
