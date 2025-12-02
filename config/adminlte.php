@@ -331,11 +331,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Add New Student',
-                    'url' => '#',
+                    'url' => '/students/create',
                 ],
                 [
                     'text' => 'Manage Students',
-                    'url' => '#',
+                    'url' => '/students',
                 ],
             ],
         ],

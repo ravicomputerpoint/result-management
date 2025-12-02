@@ -41,5 +41,7 @@ class DatabaseSeeder extends Seeder
             ['name' => '8', 'created_at' => $now, 'updated_at' => $now],
         ]);
 
+        $this->call(StudentSeeder::class);
+
     }
 }
