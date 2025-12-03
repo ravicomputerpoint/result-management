@@ -32,7 +32,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         Student::create($request->all());
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('message','Student Added Successfully');
     }
 
     /**
@@ -40,7 +40,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('students.show',compact('student'));
     }
 
     /**
@@ -48,7 +48,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        $grades = Grade::all();
+        return view('students.edit',compact('student','grades'));
     }
 
     /**
@@ -56,7 +57,8 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student->update($request->all());
+        return redirect()->route('students.index')->with('message','Student Updated Successfully');
     }
 
     /**
@@ -64,6 +66,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return back()->with('message','Student Deleted Successfully');
     }
 }

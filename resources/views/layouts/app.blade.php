@@ -27,6 +27,11 @@
 {{-- Rename section content to content_body --}}
 
 @section('content')
+    @if ($message = Session::get('message'))
+        <div class="alert alert-info">
+            {{$message}}
+        </div>
+    @endif
     @yield('content_body')
 @stop
 
