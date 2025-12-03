@@ -347,11 +347,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Add New Entry',
-                    'url' => '#',
+                    'url' => '/thirds/create',
                 ],
                 [
                     'text' => 'Manage Entry',
-                    'url' => '#',
+                    'url' => '/thirds',
                 ],
             ],
         ],
