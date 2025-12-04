@@ -44,7 +44,7 @@ class ThirdController extends Controller
      */
     public function show(Third $third)
     {
-        //
+        return view('thirds.show',compact('third'));
     }
 
     /**
