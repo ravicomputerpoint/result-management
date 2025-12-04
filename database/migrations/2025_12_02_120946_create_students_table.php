@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('mother');
             $table->date('dob');
             $table->string('address');
+            $table->boolean('is_third')->default(0);
+            $table->boolean('is_half')->default(0);
+            $table->boolean('is_year')->default(0);
             $table->timestamps();
         });
     }

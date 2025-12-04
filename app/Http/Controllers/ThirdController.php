@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grade;
 use App\Models\Third;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ThirdController extends Controller
@@ -21,7 +23,9 @@ class ThirdController extends Controller
      */
     public function create()
     {
-        //
+        $grades = Grade::all();
+        $students = Student::all();
+        return view('thirds.create',compact('grades','students'));
     }
 
     /**
@@ -29,7 +33,10 @@ class ThirdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Student::find($request->student_id)->update(['is_third'=>1]);
+        Third::updateOrCreate($request->all());
+        
+        return redirect()->route('thirds.index')->with('message','Mark Entry Successfull');
     }
 
     /**
@@ -45,7 +52,9 @@ class ThirdController extends Controller
      */
     public function edit(Third $third)
     {
-        //
+        $grades = Grade::all();
+        $students = Student::all();
+        return view('thirds.edit',compact('grades','students','third'));
     }
 
     /**
@@ -53,7 +62,8 @@ class ThirdController extends Controller
      */
     public function update(Request $request, Third $third)
     {
-        //
+        $third->update($request->all());
+        return redirect()->route('thirds.index')->with('message','Mark Updated Successfully');
     }
 
     /**
@@ -61,6 +71,8 @@ class ThirdController extends Controller
      */
     public function destroy(Third $third)
     {
-        //
+        Student::find($third->student_id)->update(['is_third'=>0]);
+        $third->delete();
+        return back()->with('message','Mark Entry Deleted');
     }
 }
