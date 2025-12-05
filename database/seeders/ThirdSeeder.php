@@ -25,7 +25,7 @@ class ThirdSeeder extends Seeder
             ],
             [
                 'grade_id' => 2,
-                'student_id' => 1,
+                'student_id' => 2,
                 'hindi' => 22,
                 'english' => 43,
                 'math' => 32,

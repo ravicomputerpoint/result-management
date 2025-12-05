@@ -23,7 +23,8 @@ class StudentSeeder extends Seeder
                     'father' => 'Shyam',
                     'mother' => 'Sunita',
                     'dob' => '2003-12-01',
-                    'address' => 'Madhuban'
+                    'address' => 'Madhuban',
+                    'is_third' => 1
                 ],
                 [
                     'grade_id' => 2,
@@ -33,7 +34,8 @@ class StudentSeeder extends Seeder
                     'father' => 'Suresh',
                     'mother' => 'Rita',
                     'dob' => '2002-12-01',
-                    'address' => 'Mau'
+                    'address' => 'Mau',
+                    'is_third' => 1
                 ],
             ]
         );

@@ -392,7 +392,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Print By Grade',
-                    'url' => '#',
+                    'url' => '/grades',
                 ],
             ],
         ],
