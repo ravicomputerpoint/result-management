@@ -1,3 +1,14 @@
+# How to setup
+1. git clone https://github.com/ravicomputerpoint/result-management
+2. cd result-management
+3. code .
+4. copy .env.exmaple .env
+5. composer install
+6. create a file under database folder named database.sqlite
+7. php artisan migreate:fresh --seed
+8. php artisan key:generate
+9. composer run dev
+   
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
