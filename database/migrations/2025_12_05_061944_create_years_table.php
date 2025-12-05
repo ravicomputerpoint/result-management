@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('halves', function (Blueprint $table) {
+        Schema::create('years', function (Blueprint $table) {
             $table->id();
             $table->foreignId('grade_id');
             $table->foreignId('student_id');
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('halves');
+        Schema::dropIfExists('years');
     }
 };

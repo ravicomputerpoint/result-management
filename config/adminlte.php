@@ -371,17 +371,17 @@ return [
             ],
         ],
         [
-            'text' => 'Yearly Monthly',
+            'text' => 'Yearly',
             'icon_color' => 'green',
             'url' => '#',
             'submenu' => [
                 [
                     'text' => 'Add New Entry',
-                    'url' => '#',
+                    'url' => '/years/create',
                 ],
                 [
                     'text' => 'Manage Entry',
-                    'url' => '#',
+                    'url' => '/years',
                 ],
             ],
         ],

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HalfController;
+use App\Http\Controllers\YearController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\ThirdController;
@@ -19,7 +20,9 @@ Route::resource('students',StudentController::class);
 
 Route::resource('thirds',ThirdController::class);
 
-Route::resource('halfs',HalfController::class);
+Route::resource('halfs',HalfController::class); 
+
+Route::resource('years',YearController::class); 
 
 Route::get('/grades',[GradeController::class,'index']);
 
