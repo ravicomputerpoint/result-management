@@ -46,5 +46,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ThirdSeeder::class);
 
+        $this->call(HalfSeeder::class);
+
     }
 }

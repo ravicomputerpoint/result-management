@@ -362,11 +362,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Add New Entry',
-                    'url' => '#',
+                    'url' => '/halfs/create',
                 ],
                 [
                     'text' => 'Manage Entry',
-                    'url' => '#',
+                    'url' => '/halfs',
                 ],
             ],
         ],

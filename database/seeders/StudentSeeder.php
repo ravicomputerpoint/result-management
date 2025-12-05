@@ -24,7 +24,9 @@ class StudentSeeder extends Seeder
                     'mother' => 'Sunita',
                     'dob' => '2003-12-01',
                     'address' => 'Madhuban',
-                    'is_third' => 1
+                    'is_third' => 1,
+                    'is_half' => 1,
+                    'is_year' => 1
                 ],
                 [
                     'grade_id' => 2,
@@ -35,7 +37,9 @@ class StudentSeeder extends Seeder
                     'mother' => 'Rita',
                     'dob' => '2002-12-01',
                     'address' => 'Mau',
-                    'is_third' => 1
+                    'is_third' => 1,
+                    'is_half' => 1,
+                    'is_year' => 1
                 ],
             ]
         );

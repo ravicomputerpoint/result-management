@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HalfController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\ThirdController;
@@ -17,6 +18,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('students',StudentController::class);
 
 Route::resource('thirds',ThirdController::class);
+
+Route::resource('halfs',HalfController::class);
 
 Route::get('/grades',[GradeController::class,'index']);
 
