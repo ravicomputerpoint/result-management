@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $total_students = Student::count();
+
+        $gradeCounts = Student::selectRaw('grade_id, COUNT(*) as total')
+            ->groupBy('grade_id')
+            ->with('grade')
+            ->get();
+
+        $labels = $gradeCounts->pluck('grade.name');
+        $values = $gradeCounts->pluck('total');
+
+        return view('home', compact('total_students', 'labels', 'values'));
     }
+
 }
