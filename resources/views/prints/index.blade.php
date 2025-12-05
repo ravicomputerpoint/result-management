@@ -394,42 +394,42 @@
                     <h4 class="text-center"><b>Report Card (Session : 2025 - 2026)</b></h4>
                     <h4 class="text-center"><b>Class - {{$third->grade->name}}</b></h4>
                     <h4 class="py-2 text-center text-white rounded shadow-sm" style="background-color:#c06702"><b>Student Details</b></h4>
-                    <table class="table table-bordered custom-bordered-table">
+                    <table class="table table-bordered custom-bordered-table {{ in_array($third->grade_id,[4,5,6,7,8,9,10,11]) ? 'table-sm' : '' }}">
                         <tbody>
                             <tr>
                                 <th>Admission No.</th>
-                                <td colspan="3">{{$thid->student->admission_no}}</td>
+                                <td colspan="3">{{$third->student->admission_no}}</td>
                             </tr>
                             <tr>
                                 <th>Roll No.</th>
-                                <td colspan="3">{{$thid->student->roll_no}}</td>
+                                <td colspan="3">{{$third->student->roll_no}}</td>
                             </tr>
                             <tr>
                                 <th>Student Name</th>
-                                <td colspan="3">{{$thid->student->name}}</td>
+                                <td colspan="3">{{$third->student->name}}</td>
                             </tr>
                             <tr>
                                 <th>Date of Birth</th>
-                                <td colspan="3">{{$thid->student->dob}}</td>
+                                <td colspan="3">{{$third->student->dob}}</td>
                             </tr>
                             <tr>
                                 <th>Father Name</th>
-                                <td colspan="3">{{$thid->student->father}}</td>
+                                <td colspan="3">{{$third->student->father}}</td>
                             </tr>
                             <tr>
                                 <th>Mother Name</th>
-                                <td colspan="3">{{$thid->student->mother}}</td>
+                                <td colspan="3">{{$third->student->mother}}</td>
                             </tr>
                             <tr>
                                 <th>Address</th>
-                                <td>{{$thid->student->address}}</td>
+                                <td>{{$third->student->address}}</td>
                                 <th>Total Attendance/Working Days</th>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             </tr>
                         </tbody>
                     </table>
                     <h4 class="py-2 text-center text-white rounded shadow-sm" style="background-color: #c06702"><b>Marks Details</b></h4>
-                    <table class="table table-bordered table-sm custom-bordered-table">
+                    <table class="table table-bordered custom-bordered-table table-sm">
                         <tbody>
                             <tr class="text-center" style="font-weight: bold">
                                 <td rowspan="2" class="align-middle">Subjects</td>
@@ -448,92 +448,232 @@
                                 <td>Obt</td>
                                 <td>Max</td>
                             </tr>
-                            <tr class="text-center">
-                                <td class="text-left" style="font-weight: bold">Hindi</td>
-                                <td class="">47</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td style="font-weight: bold">147</td>
-                                <td style="font-weight: bold">150</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="text-left" style="font-weight: bold">English</td>
-                                <td>47</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td style="font-weight: bold">147</td>
-                                <td style="font-weight: bold">150</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="text-left" style="font-weight: bold">Mathematics</td>
-                                <td>48</td>
-                                <td>50</td>
-                                <td>48</td>
-                                <td>50</td>
-                                <td>47</td>
-                                <td>50</td>
-                                <td style="font-weight: bold">143</td>
-                                <td style="font-weight: bold">150</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="text-left" style="font-weight: bold">Drawing</td>
-                                <td>42</td>
-                                <td>50</td>
-                                <td>45</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td style="font-weight: bold">137</td>
-                                <td style="font-weight: bold">150</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="text-left" style="font-weight: bold">Rhymes</td>
-                                <td>49</td>
-                                <td>50</td>
-                                <td>47</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>50</td>
-                                <td style="font-weight: bold">136</td>
-                                <td style="font-weight: bold">150</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="text-left" style="font-weight: bold">Total</td>
-                                <td>233</td>
-                                <td>250</td>
-                                <td>240</td>
-                                <td>250</td>
-                                <td>237</td>
-                                <td>250</td>
-                                <td style="font-weight: bold">710</td>
-                                <td style="font-weight: bold">750</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="text-left" style="font-weight: bold">Percentage</td>
-                                <td colspan="2" style="font-weight: bold">
-                                    93.2%
-                                </td>
-                                <td colspan="2" style="font-weight: bold">
-                                    96%
-                                </td>
-                                <td colspan="2" style="font-weight: bold">
-                                    94.8%
-                                </td>
-                                <td colspan="2" class="text-center" style="font-weight: bold">
-                                    94.67%
-                                </td>                        
-                            </tr>                    
+                            @if (in_array($third->grade_id,[1,2,3]))
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Hindi</td>
+                                    <td>{{$third->student->third->hindi}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->hindi}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->hindi}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->hindi + $third->student->half->hindi + $third->student->year->hindi }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">English</td>
+                                    <td>{{$third->student->third->english}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->english}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->english}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->english + $third->student->half->english + $third->student->year->english }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Mathematics</td>
+                                    <td>{{$third->student->third->math}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->math}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->math}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->math + $third->student->half->math + $third->student->year->math }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Drawing</td>
+                                    <td>{{$third->student->third->drawing}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->drawing}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->drawing}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->drawing + $third->student->half->drawing + $third->student->year->drawing }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Rhymes</td>
+                                    <td>{{$third->student->third->rhymes}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->rhymes}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->rhymes}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->rhymes + $third->student->half->rhymes + $third->student->year->rhymes }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Total</td>
+                                    <td>{{$third->student->third->hindi + $third->student->third->english + $third->student->third->math + $third->student->third->drawing + $third->student->third->rhymes}}</td>
+                                    <td>250</td>
+                                    <td>{{$third->student->half->hindi + $third->student->half->english + $third->student->half->math + $third->student->half->drawing + $third->student->half->rhymes}}</td>
+                                    <td>250</td>
+                                    <td>{{$third->student->year->hindi + $third->student->year->english + $third->student->year->math + $third->student->year->drawing + $third->student->year->rhymes}}</td>
+                                    <td>250</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->hindi + $third->student->half->hindi + $third->student->year->hindi + $third->student->third->english + $third->student->half->english + $third->student->year->english +  $third->student->third->math + $third->student->half->math + $third->student->year->math + $third->student->third->drawing + $third->student->half->drawing + $third->student->year->drawing + $third->student->third->rhymes + $third->student->half->rhymes + $third->student->year->rhymes }}</td>
+                                    <td style="font-weight: bold">750</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Percentage</td>
+                                    <td colspan="2" style="font-weight: bold">
+                                        {{ ($third->student->third->hindi + $third->student->third->english + $third->student->third->math + $third->student->third->drawing + $third->student->third->rhymes)/250*100 }}%
+                                    </td>
+                                    <td colspan="2" style="font-weight: bold">
+                                        {{ ($third->student->half->hindi + $third->student->half->english + $third->student->half->math + $third->student->half->drawing + $third->student->half->rhymes)/250*100 }}%
+                                    </td>
+                                    <td colspan="2" style="font-weight: bold">
+                                        {{ ($third->student->year->hindi + $third->student->year->english + $third->student->year->math + $third->student->year->drawing + $third->student->year->rhymes)/250*100 }}%
+                                    </td>
+                                    <td colspan="2" class="text-center" style="font-weight: bold">
+                                        {{ number_format(($third->student->third->hindi + $third->student->half->hindi + $third->student->year->hindi + $third->student->third->english + $third->student->half->english + $third->student->year->english +  $third->student->third->math + $third->student->half->math + $third->student->year->math + $third->student->third->drawing + $third->student->half->drawing + $third->student->year->drawing + $third->student->third->rhymes + $third->student->half->rhymes + $third->student->year->rhymes)/750*100,2) }}%
+                                    </td>                        
+                                </tr>
+                            @elseif (in_array($third->grade_id,[4,5,6,7,8,9,10,11]))
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Hindi</td>
+                                    <td>{{$third->student->third->hindi}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->hindi}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->hindi}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->hindi + $third->student->half->hindi + $third->student->year->hindi }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">English</td>
+                                    <td>{{$third->student->third->english}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->english}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->english}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->english + $third->student->half->english + $third->student->year->english }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Mathematics</td>
+                                    <td>{{$third->student->third->math}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->math}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->math}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->math + $third->student->half->math + $third->student->year->math }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Drawing</td>
+                                    <td>{{$third->student->third->drawing}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->drawing}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->drawing}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->drawing + $third->student->half->drawing + $third->student->year->drawing }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">G.K.</td>
+                                    <td>{{$third->student->third->gk}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->gk}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->gk}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->gk + $third->student->half->gk + $third->student->year->gk }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">S.St.</td>
+                                    <td>{{$third->student->third->sst}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->sst}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->sst}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->sst + $third->student->half->sst + $third->student->year->sst }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Science</td>
+                                    <td>{{$third->student->third->science}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->science}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->science}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->science + $third->student->half->science + $third->student->year->science }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Computer</td>
+                                    <td>{{$third->student->third->computer}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->half->computer}}</td>
+                                    <td>50</td>
+                                    <td>{{$third->student->year->computer}}</td>
+                                    <td>50</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->computer + $third->student->half->computer + $third->student->year->computer }}</td>
+                                    <td style="font-weight: bold">150</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Total</td>
+                                    <td>{{$third->student->third->hindi + $third->student->third->english + $third->student->third->math + $third->student->third->drawing + $third->student->third->gk + $third->student->third->sst + $third->student->third->science + $third->student->third->computer}}</td>
+                                    <td>400</td>
+                                    <td>{{$third->student->half->hindi + $third->student->half->english + $third->student->half->math + $third->student->half->drawing + $third->student->half->gk + $third->student->half->sst + $third->student->half->science + $third->student->half->computer }}</td>
+                                    <td>400</td>
+                                    <td>{{$third->student->year->hindi + $third->student->year->english + $third->student->year->math + $third->student->year->drawing + $third->student->year->gk + $third->student->year->sst + $third->student->year->science + $third->student->year->computer }}</td>
+                                    <td>400</td>
+                                    <td style="font-weight: bold">{{ $third->student->third->hindi + $third->student->half->hindi + $third->student->year->hindi + $third->student->third->english + $third->student->half->english + $third->student->year->english +  $third->student->third->math + $third->student->half->math + $third->student->year->math + $third->student->third->drawing + $third->student->half->drawing + $third->student->year->drawing + $third->student->third->gk + $third->student->half->gk + $third->student->year->gk + $third->student->third->sst + $third->student->half->sst + $third->student->year->sst + $third->student->third->science + $third->student->half->science + $third->student->year->science + $third->student->third->computer + $third->student->half->computer + $third->student->year->computer }}</td>
+                                    <td style="font-weight: bold">1200</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-left" style="font-weight: bold">Percentage</td>
+                                    <td colspan="2" style="font-weight: bold">
+                                        {{ ($third->student->third->hindi + $third->student->third->english + $third->student->third->math + $third->student->third->drawing + $third->student->third->gk + $third->student->third->sst + $third->student->third->science + $third->student->third->computer)/400*100 }}%
+                                    </td>
+                                    <td colspan="2" style="font-weight: bold">
+                                        {{ ($third->student->half->hindi + $third->student->half->english + $third->student->half->math + $third->student->half->drawing + $third->student->half->gk + $third->student->half->sst + $third->student->half->science + $third->student->half->computer)/400*100 }}%
+                                    </td>
+                                    <td colspan="2" style="font-weight: bold">
+                                        {{ ($third->student->year->hindi + $third->student->year->english + $third->student->year->math + $third->student->year->drawing + $third->student->year->gk + $third->student->year->sst + $third->student->year->science + $third->student->year->computer)/400*100 }}%
+                                    </td>
+                                    <td colspan="2" class="text-center" style="font-weight: bold">
+                                        {{ number_format((
+                                                $third->student->third->hindi + $third->student->half->hindi + $third->student->year->hindi + 
+                                                $third->student->third->english + $third->student->half->english + $third->student->year->english +  
+                                                $third->student->third->math + $third->student->half->math + $third->student->year->math + 
+                                                $third->student->third->drawing + $third->student->half->drawing + $third->student->year->drawing + 
+                                                $third->student->third->gk + $third->student->half->gk + $third->student->year->gk +
+                                                $third->student->third->sst + $third->student->half->sst + $third->student->year->sst +
+                                                $third->student->third->science + $third->student->half->science + $third->student->year->science +
+                                                $third->student->third->computer + $third->student->half->computer + $third->student->year->computer
+                                            )/1200*100,2) 
+                                        }}%
+                                    </td>                        
+                                </tr> 
+                            @endif              
                         </tbody>
                     </table>
                     <div class="d-flex text-light p-2 justify-content-between align-items-center rounded shadow-sm" style="background-color: #c06702">
-                        <h4><b>Result : Passed</b></h4>
-                        <h4><b>Rank : 1</b></h4>
+                        <h4><b>Result : 
+                            {{ 
+                                ((
+                                    $third->student->third->hindi + $third->student->half->hindi + $third->student->year->hindi + 
+                                    $third->student->third->english + $third->student->half->english + $third->student->year->english +  
+                                    $third->student->third->math + $third->student->half->math + $third->student->year->math + 
+                                    $third->student->third->drawing + $third->student->half->drawing + $third->student->year->drawing + 
+                                    $third->student->third->gk + $third->student->half->gk + $third->student->year->gk + 
+                                    $third->student->third->sst + $third->student->half->sst + $third->student->year->sst + 
+                                    $third->student->third->science + $third->student->half->science + $third->student->year->science + 
+                                    $third->student->third->computer + $third->student->half->computer + $third->student->year->computer 
+                                )/1200*100) > 33 ? 'Passed' : 'Fail'  
+                            }}    
+                        </b></h4>
+                        <h4><b>Rank : {{$student->rank}}</b></h4>
                     </div>
                     <table class="table table-bordered border-dark mt-2 custom-bordered-table">
                         <tbody>
