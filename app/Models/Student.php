@@ -18,4 +18,14 @@ class Student extends Model
     {
         return $this->hasOne(Third::class);
     }
+
+    public function half()
+    {
+        return $this->hasOne(Half::class);
+    }
+
+    public function year()
+    {
+        return $this->hasOne(Year::class);
+    }
 }
